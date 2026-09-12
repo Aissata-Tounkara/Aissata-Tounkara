@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&duration=3000&pause=900&color=D946A5&center=true&vCenter=true&width=850&lines=D%C3%A9veloppeuse+Full-Stack+%7C+React+%2C+Node.js+%2C+Flutter;Je+transforme+des+besoins+en+produits+num%C3%A9riques+fiables;Toujours+en+train+d%27apprendre+et+de+construire" alt="Typing SVG" />
+![Banner](https://raw.githubusercontent.com/Aissata-Tounkara/Aissata-Tounkara/main/Avatar.jpeg)
 
-[![](https://img.shields.io/badge/LINKEDIN-C2185B?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aissata-tounkara-62710637a/)
-[![](https://img.shields.io/badge/GITHUB-D946A5?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aissata-Tounkara)
-![Profile Views](https://komarev.com/ghpvc/?username=Aissata-Tounkara&label=VUES+DU+PROFIL&color=c2185b&style=for-the-badge)
+[![](https://img.shields.io/badge/LINKEDIN-1E1B4B?style=for-the-badge&logo=linkedin&logoColor=22D3EE)](https://www.linkedin.com/in/aissata-tounkara-62710637a/)
+[![](https://img.shields.io/badge/GITHUB-1E1B4B?style=for-the-badge&logo=github&logoColor=A855F7)](https://github.com/Aissata-Tounkara)
+![Profile Views](https://komarev.com/ghpvc/?username=Aissata-Tounkara&label=VUES+DU+PROFIL&color=1e1b4b&style=for-the-badge)
 
-![](https://img.shields.io/badge/OUVERTE_AUX_OPPORTUNITÉS-F472B6?style=flat-square&labelColor=2B0B22)
-![](https://img.shields.io/badge/FULL--STACK_DEV-D946A5?style=flat-square&labelColor=2B0B22)
-![](https://img.shields.io/badge/CHEFFE_DE_PROJET-C084FC?style=flat-square&labelColor=2B0B22)
-![](https://img.shields.io/badge/EN_APPRENTISSAGE_CYBERSÉCURITÉ-F9A8D4?style=flat-square&labelColor=2B0B22)
+![](https://img.shields.io/badge/OUVERTE_AUX_OPPORTUNITÉS-22D3EE?style=flat-square&labelColor=0F0B29)
+![](https://img.shields.io/badge/FULL--STACK_DEV-A855F7?style=flat-square&labelColor=0F0B29)
+![](https://img.shields.io/badge/CHEFFE_DE_PROJET-06B6D4?style=flat-square&labelColor=0F0B29)
+![](https://img.shields.io/badge/EN_APPRENTISSAGE_CYBERSÉCURITÉ-8B5CF6?style=flat-square&labelColor=0F0B29)
 
 ### Je transforme des besoins en produits numériques fiables, élégants et bien pensés.
 
@@ -50,7 +50,7 @@
 
 ## `04` — Terrain de jeu créatif
 
-| 🌸 **Conception d'abord** | ⚡ **Performance** | 🧩 **Code propre** | 💜 **Responsabilité** |
+| 💠 **Conception d'abord** | ⚡ **Performance** | 🧩 **Code propre** | 🔷 **Responsabilité** |
 |---|---|---|---|
 | Interfaces adaptées aux vrais besoins du client | Applications rapides et fluides | Maintenable, évolutif et documenté | Respecter mes engagements et mes délais |
 
@@ -60,12 +60,12 @@
 
 <div align="center">
 
-![Stats](https://github-readme-stats.vercel.app/api?username=Aissata-Tounkara&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&bg_color=2B0B22&title_color=F472B6&text_color=E9D5E9&icon_color=D946A5)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Aissata-Tounkara&layout=compact&langs_count=8&hide_border=true&bg_color=2B0B22&title_color=F472B6&text_color=E9D5E9)
+![Stats](https://github-readme-stats.vercel.app/api?username=Aissata-Tounkara&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&bg_color=0F0B29&title_color=22D3EE&text_color=C4B5FD&icon_color=A855F7)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Aissata-Tounkara&layout=compact&langs_count=8&hide_border=true&bg_color=0F0B29&title_color=22D3EE&text_color=C4B5FD)
 
-![Streak](https://streak-stats.demolab.com?user=Aissata-Tounkara&hide_border=true&background=2B0B22&ring=D946A5&fire=F472B6&currStreakLabel=F472B6&sideLabels=E9D5E9&sideNums=E9D5E9&dates=C084FC)
+![Streak](https://streak-stats.demolab.com?user=Aissata-Tounkara&hide_border=true&background=0F0B29&ring=A855F7&fire=22D3EE&currStreakLabel=22D3EE&sideLabels=C4B5FD&sideNums=C4B5FD&dates=8B5CF6)
 
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Aissata-Tounkara&bg_color=2B0B22&color=E9D5E9&line=D946A5&point=F472B6&area=true&area_color=F9A8D4&hide_border=true)
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Aissata-Tounkara&bg_color=0F0B29&color=C4B5FD&line=22D3EE&point=A855F7&area=true&area_color=6D28D9&hide_border=true)
 
 </div>
 
@@ -93,8 +93,8 @@ DIRIGER     ██████░░░░░░░░░░░░░░  Premie
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aissata-Tounkara)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aissata-tounkara-62710637a/)
+[![GitHub](https://img.shields.io/badge/GitHub-1E1B4B?style=for-the-badge&logo=github&logoColor=A855F7)](https://github.com/Aissata-Tounkara)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-1E1B4B?style=for-the-badge&logo=linkedin&logoColor=22D3EE)](https://www.linkedin.com/in/aissata-tounkara-62710637a/)
 
 **Clarté dans la stratégie · Rigueur dans l'exécution · Élégance à chaque étape**
 
