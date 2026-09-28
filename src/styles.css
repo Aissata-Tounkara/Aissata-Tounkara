@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --bg: #f5f0eb;
   --surface: #faf7f4;
   --surface-2: #ede5da;
@@ -14,20 +14,20 @@
   --shadow: 0 24px 70px rgba(92, 61, 46, 0.16);
 }
 
-:root[data-theme='light'] {
-  color-scheme: light;
-  --bg: #fdf9f5;
-  --surface: #ffffff;
-  --surface-2: #ede5da;
-  --text: #2c2118;
-  --muted: #8a7464;
-  --line: rgba(92, 61, 46, 0.14);
-  --accent: #a07850;
-  --accent-2: #c8a97e;
-  --accent-3: #7a9e8e;
-  --rose: #d4c4b0;
-  --plum: #5c3d2e;
-  --shadow: 0 24px 70px rgba(92, 61, 46, 0.16);
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #171310;
+  --surface: #211b17;
+  --surface-2: #30261f;
+  --text: #f8eee5;
+  --muted: #c6b5a6;
+  --line: rgba(248, 238, 229, 0.14);
+  --accent: #dbad78;
+  --accent-2: #edcf9c;
+  --accent-3: #9ac5b1;
+  --rose: #815e48;
+  --plum: #4c3026;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -46,8 +46,24 @@ body {
     linear-gradient(145deg, rgba(237, 229, 218, 0.8), transparent 42%),
     var(--bg);
   color: var(--text);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-style: italic;
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.02;
 }
 
 a {
@@ -438,11 +454,23 @@ footer div {
   transition: translate 180ms ease, border-color 180ms ease;
 }
 
+.project-link {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .project-card img {
   display: block;
   width: 100%;
   aspect-ratio: 1.35;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--surface-2);
 }
 
 .project-content {
@@ -460,13 +488,18 @@ footer div {
   text-transform: uppercase;
 }
 
-.project-content a {
+.project-arrow {
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background: var(--surface-2);
+}
+
+.project-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  outline-offset: -3px;
 }
 
 .project-content span,
@@ -485,6 +518,108 @@ footer div {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
+}
+
+.project-carousel {
+  margin-bottom: 2.5rem;
+}
+
+.carousel-main {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  aspect-ratio: 16 / 9;
+}
+
+.carousel-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.carousel-btn.prev {
+  left: 14px;
+}
+
+.carousel-btn.next {
+  right: 14px;
+}
+
+.carousel-counter {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  backdrop-filter: blur(8px);
+}
+
+.carousel-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.carousel-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.carousel-thumb.active {
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--surface-2);
+}
+
+.project-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.project-info-card {
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 
 .split,
@@ -554,6 +689,13 @@ meter::-webkit-meter-optimum-value {
 .contact-form {
   display: grid;
   gap: 16px;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 label {
@@ -658,6 +800,10 @@ footer a {
   .project-grid {
     grid-template-columns: 1fr;
   }
+
+  .project-info-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 620px) {
@@ -689,5 +835,19 @@ footer a {
   footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .carousel-thumb {
+    width: 62px;
+    height: 44px;
+  }
+
+  .project-info-card {
+    padding: 1.4rem;
   }
 }

@@ -1,9 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import ProjectDetail from './projectDetail';
+
+
+
 import {
   ArrowUpRight,
-  BriefcaseBusiness,
-  Camera,
   Code2,
   Download,
   Github,
@@ -23,35 +26,35 @@ const projects = [
   {
     title: 'GestionMenuiserie',
     category: 'fullstack',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80',
+    image: '/projects/menuiserie/1.png',
     description: 'Application de gestion pour menuisiers — devis clients, commandes et factures en un seul outil.',
     tech: ['Laravel', 'MySQL', 'React', 'Tailwind CSS'],
   },
   {
     title: 'AnoBox',
     category: 'fullstack',
-    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=900&q=80',
+    image: '/projects/anonbox/1.jpeg',
     description: 'Messagerie anonyme — envoie et reçois des messages sans révéler ton identité.',
     tech: ['Next.js', 'Laravel', 'MySQL', 'Tailwind CSS'],
   },
   {
     title: 'MyAgenda',
     category: 'frontend',
-    image: 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=900&q=80',
+    image: '/projects/myagenda/1.png',
     description: 'Gère tes rendez-vous toi-même et choisis d\'être notifiée 1h ou 24h avant chaque RDV.',
     tech: ['React', 'JavaScript', 'MySQL', 'Tailwind CSS'],
   },
   {
     title: 'ShopApp',
     category: 'mobile',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=80',
+    image: '/projects/shopapp/1.jpeg',
     description: 'App mobile e-commerce — connexion, inscription, ajout de produits en vente et gestion du panier.',
     tech: ['Flutter', 'Dart'],
   },
   {
     title: 'AuthApp',
     category: 'mobile',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80',
+    image: '/projects/authapp/1.jpeg',
     description: 'App mobile avec authentification complète — connexion, déconnexion, inscription et accueil personnalisé.',
     tech: ['Flutter', 'Dart'],
   },
@@ -69,12 +72,16 @@ const skills = [
 ];
 
 function App() {
+  const navigate = useNavigate();
+
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'light');
   const [filter, setFilter] = useState('all');
+  const [sent, setSent] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
 
   const filteredProjects = useMemo(() => {
@@ -148,7 +155,7 @@ function App() {
             <div className="portrait-frame">
               <img
                 src="/profile.jpg"
-                alt="Portrait de Aicha Meriem"
+                alt="Portrait d’Aïssata Tounkara"
                 onError={(event) => {
                   event.currentTarget.src = '/profile-placeholder.svg';
                 }}
@@ -212,16 +219,25 @@ function App() {
 
           <div className="project-grid">
             {filteredProjects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <img src={project.image} alt={project.title} />
+            <article
+              className="project-card"
+              key={project.title}
+            >
+              <button
+                className="project-link"
+                type="button"
+                onClick={() => navigate(`/projet/${project.title.toLowerCase()}`)}
+                aria-label={`Voir le projet ${project.title}`}
+              >
+                <img src={project.image} alt={`Aperçu de ${project.title}`} />
                 <div className="project-content">
                   <div>
                     <p>{labelFilter(project.category)}</p>
                     <h3>{project.title}</h3>
                   </div>
-                  <a href="#contact" aria-label={`Demander un projet comme ${project.title}`}>
+                  <span className="project-arrow" aria-hidden="true">
                     <ArrowUpRight size={19} />
-                  </a>
+                  </span>
                   <span>{project.description}</span>
                   <div className="tech-list">
                     {project.tech.map((tech) => (
@@ -229,7 +245,8 @@ function App() {
                     ))}
                   </div>
                 </div>
-              </article>
+              </button>
+            </article>
             ))}
           </div>
         </section>
@@ -270,7 +287,7 @@ function App() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', margin: '1.5rem 0' }}>
             
-            <a href="mailto:tounkaraaissata474@gmail.com " style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a href="mailto:tounkaraaissata474@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Mail size={17} /> tounkaraaissata474@gmail.com
             </a>
 
@@ -301,7 +318,7 @@ function App() {
           </a>
 
             <a 
-              href="https://wa.me/+22378619780" 
+              href="https://wa.me/22378619780"
               target="_blank" 
               rel="noreferrer" 
               style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
@@ -310,7 +327,7 @@ function App() {
             </a>
 
             <a 
-              href="tel:+213 797592024" 
+              href="tel:+213797592024"
               target="_blank" 
               rel="noreferrer" 
               style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
@@ -325,22 +342,30 @@ function App() {
           </a>
         </div>
 
-        <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+        <form className="contact-form" onSubmit={(event) => {
+          event.preventDefault();
+          const form = new FormData(event.currentTarget);
+          const subject = encodeURIComponent(`Projet portfolio — ${form.get('name')}`);
+          const body = encodeURIComponent(`Nom : ${form.get('name')}\nEmail : ${form.get('email')}\n\n${form.get('message')}`);
+          window.location.href = `mailto:tounkaraaissata474@gmail.com?subject=${subject}&body=${body}`;
+          setSent(true);
+        }}>
           <label>
             Nom
-            <input type="text" placeholder="Votre nom" />
+            <input name="name" type="text" placeholder="Votre nom" required />
           </label>
           <label>
             Email
-            <input type="email" placeholder="votre@email.com" />
+            <input name="email" type="email" placeholder="votre@email.com" required />
           </label>
           <label>
             Message
-            <textarea placeholder="Parlez-moi de votre projet" rows="5" />
+            <textarea name="message" placeholder="Parlez-moi de votre projet" rows="5" required />
           </label>
           <button className="button primary" type="submit">
             Envoyer <Send size={18} />
           </button>
+          {sent && <p className="form-status">Votre application e-mail va s’ouvrir pour envoyer le message.</p>}
         </form>
       </section>
       </main>
@@ -372,7 +397,7 @@ function App() {
           }}>in</span>
         </a>
         <a 
-          href="https://wa.me/21378619780" 
+          href="https://wa.me/22378619780"
           target="_blank" 
           rel="noreferrer" 
           aria-label="WhatsApp"
@@ -380,7 +405,7 @@ function App() {
           <Send size={19} />
         </a>
         <a 
-          href="mailto:tounkaraaissata474@gmail.com" 
+          href="mailto:tounkaraaissata474@gmail.com"
           aria-label="Email"
         >
           <Mail size={19} />
@@ -428,4 +453,11 @@ function labelFilter(value) {
   return labels[value];
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/projet/:id" element={<ProjectDetail />} />
+    </Routes>
+  </BrowserRouter>
+);
